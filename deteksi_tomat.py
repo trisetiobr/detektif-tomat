@@ -10,7 +10,7 @@ args = vars(ap.parse_args())
 filename = args["image"]
 
 def deteksiTomat():
-        cascade_file = "xml/cascade6.xml"
+        cascade_file = "xml/cascade.xml"
 
         cascade = cv2.CascadeClassifier(cascade_file)
         image = cv2.imread(filename)
@@ -18,7 +18,7 @@ def deteksiTomat():
         gray = cv2.equalizeHist(gray)
         cv2.imshow("gray", gray)
 
-        faces = cascade.detectMultiScale(gray,scaleFactor = 2,minNeighbors = 8,minSize = (30, 30))
+        faces = cascade.detectMultiScale(gray,scaleFactor = 2.9,minNeighbors = 9,minSize = (30, 30))
 
         idx = 0
         os.system('rmdir /s /q pic')

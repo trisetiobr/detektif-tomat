@@ -40,3 +40,4 @@ def knn(data,k,process):
             print(i)
         return output[0]
 
+

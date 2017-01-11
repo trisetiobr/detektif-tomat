@@ -5,6 +5,7 @@ from preprocess import preProcess
 from countfiles import countFiles
 from color_average import getAverage
 from kelas import saveClass
+from crop import getRegion
 
 def runPreprocess():   
     preProcess('dataset/unproses/test/')
@@ -18,6 +19,7 @@ def training(train_dir,data):
         kelas = i.split('/')
         for j in range(1,n+1):
             img = cv2.imread(i+str(j)+'.jpg')
+            #img = getRegion(img)
             value = getAverage(img)
             value.append(kelas[-2])
             data.append(value)
